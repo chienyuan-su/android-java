@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">androidEx</string>
+    <string name="tv_text1">測試文字串</string>
 </resources>
