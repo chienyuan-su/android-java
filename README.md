@@ -25,10 +25,23 @@
   
   1.5 可視物件點擊事件註冊
   1.5.1 viewObj.setOnClickListener(param) 淺顯易懂
-  1.5.2 param 為一個抽象類別(interface) View.OnClickListener 的實例化, 需要實做 onClick(View v), 系統會幫忙把點到的 view 丟進來
-  1.5.3 實例化可以 new 完後立刻接實例化實作, 比如: new View.OnClickListener() {
+  1.5.2 param 為一個 interface View.OnClickListener 的實例化, 需要實做 onClick(View v), 系統會幫忙把點到的 view 丟進來
+  1.5.3 實例化也可以 new 完後立刻接實作, 比如: new View.OnClickListener() {
             @Override
             public void onClick(View v) {...}
   
-  1.6 
+  1.6 List View 物件(內建基本元件, 可以被 recyclerView 取代)
+  1.6.1 實作 list item 佈局 Adapter extend BaseAdapter(系統的)
+  1.6.1.1 Adapter, 需配置兩個參數 : Context(運行中的activity本身, 不傳好像也沒差), LayoutInflater(從運行中的 context form 出來, 動態加載 layout 用的)
+  1.6.1.2 Adapter, 至少需要實作 getCount(): 回傳陣列個數(先隨意回一個常數), getView(): 實作 item 佈局與綁定變量
+  1.6.1.3 getView(): 先長出一個 view(佈局先寫好), 綁定變量, 若綁定過, 直接取出做修改, 最後把綁好的 view 返回
+  1.6.1.4 回到 activity 把 Adapter 設定給 listView 用就搞定了
+  1.6.2 實作 list item 點擊事件
+  1.6.2.1 ListView 自帶點擊事件, 參數為 AdapterView.OnItemClickListener , 實現方法與 View.OnClickListener 類似, 就差被塞入的參數不同
+  
+  1.7 RecyclerView 
+  
+  
+  
+  
   
