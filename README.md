@@ -1,4 +1,4 @@
-##android-java
+## android-java
 
 #### [2019-11-13]
 
@@ -38,5 +38,17 @@
 	2. 實作 list item 點擊事件 
 		a. ListView 自帶點擊事件, 參數為 AdapterView.OnItemClickListener , 實現方法與 View.OnClickListener 類似, 就差被塞入的參數不同
 
-##### RecyclerView
+##### RecyclerView (Linear)
+	1. 設定LayoutManager並且把自己(context)丟進去
+	2. 一樣做 Adapter 但這次 extend RecyclerView.Adapter<VH extends RecyclerView.ViewHolder>
+	3. 與ListView不同, 這次要實作一個 ViewHolder extend RecyclerView.ViewHolder
+		a. RecyclerView.ViewHolder 有個屬性 itemView 指到自己
+		b. 實作一個 list item 佈局, 並把屬性綁定好之後, 實體化給 onCreateViewHolder 當return值
+		c. 在 onBindViewHolder 裡就可以實作每一個 list item 內容
+	4. RecyclerView.Adapter 沒有提供 item 點擊事件必須自己實作
+		a. 創一個 OnItemClickListener interface, 並且在 activity 裡實作
+		b. 在onBindViewHolder 裡可以拿到每一個 list item(view holder), 透過 viewHoloder.itemView 設定 onClickLister 將點擊事件再call back 給實作端
+
+
+	
 
